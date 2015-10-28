@@ -1,0 +1,28 @@
+CURSORID cursorid:%{NUMBER:cursorid:int}
+NTORETURN ntoreturn:%{NUMBER:ntoreturn:int}
+NTOSKIP ntoskip:%{NUMBER:ntoskip:int}
+NSCANNED nscanned:%{NUMBER:nscanned:int}
+SCAN_AND_ORDER scanAndOrder:%{NUMBER:scanAndOrder:int}
+IDHACK idhack:%{NUMBER:idhack:int}
+NMOVED nmoved:%{NUMBER:nmoved:int}
+NUPDATED nupdated:%{NUMBER:nupdated:int}
+KEYUPDATES keyUpdates:%{NUMBER:keyUpdates:int}
+NUMYIELDS numYields:%{NUMBER:numYields:int}
+RLOCKS locks\(micros\) r:%{NUMBER:rlocks:int}
+WLOCKS locks\(micros\) w:%{NUMBER:wlocks:int}
+NRETURNED nreturned:%{NUMBER:nreturned:int}
+RESLEN reslen:%{NUMBER:reslen:int}
+NDELETED ndeleted:%{NUMBER:ndeleted:int}
+
+# MONGO BASIC LOG FORMAT
+MONGO_LOG (?m)%{TIMESTAMP_ISO8601:timestamp} \[%{WORD:component}\] %{WORD:ctype} %{GREEDYDATA:mongoStatement}
+
+# MONGO COMMAND AGGREGATE and OTHER COMMANDS
+MONGO_AG %{WORD:database}.(?<collection>.*) %{WORD}\: %{WORD:command} \{ %{GREEDYDATA:aggregate} \} %{GREEDYDATA} %{NUMBER:duration:int}ms
+
+# MONGO GETMORE
+MONGO_GM %{WORD:database}.%{WORD:collection} %{GREEDYDATA:getmore} %{NUMBER:duration:int}ms
+
+# MONGO QUERY
+MONGO_QY %{WORD:database}.%{WORD:collection} %{WORD}\: \{ %{GREEDYDATA:query} \} %{GREEDYDATA} %{NUMBER:duration:int}ms
+
