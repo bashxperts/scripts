@@ -1,0 +1,21 @@
+{
+	"EvaluationPeriods": 2,
+	"ComparisonOperator": "GreaterThanOrEqualToThreshold",
+	"AlarmActions": [
+		"arn:aws:sns:us-east-1:672668720779:aws-notifications"
+	],
+	"Namespace": "AWS/EC2",
+	"AlarmDescription": "Alarm StatusCheck System",
+	"Period": 60,
+	"Threshold": 1.0,
+	"AlarmName": "Instance INSTANCE_ID StatusCheck",
+	"Dimensions": [
+		{
+			"Name": "InstanceId",
+			"Value": "INSTANCE_ID"
+		}
+	],
+	"Statistic": "Average",
+	"ActionsEnabled": true,
+	"MetricName": "StatusCheckFailed_System"
+}
