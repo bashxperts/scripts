@@ -2,7 +2,7 @@
 	"EvaluationPeriods": 2,
 	"ComparisonOperator": "GreaterThanOrEqualToThreshold",
 	"AlarmActions": [
-		"arn:aws:sns:us-east-1:672668720779:aws-notifications"
+		"arn:aws:sns:us-east-1:000000000000:aws-notifications"
 	],
 	"Namespace": "AWS/EC2",
 	"AlarmDescription": "Alarm StatusCheck System",
